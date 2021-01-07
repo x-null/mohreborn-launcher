@@ -1,14 +1,6 @@
 @charset "utf-8";
 @import "../node_modules/bulma/bulma.sass";
 
-::-webkit-scrollbar {
-    display: none;
-}
-
-
-
-
-// Import a Google Font
 @font-face {
     font-family: 'Fira Sans Normal';
     src: url('../fonts/Fira_Sans/FiraSans-Regular.ttf') format('truetype');
@@ -21,17 +13,6 @@
     src: url('../fonts/Fira_Sans/FiraSans-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
-}
-
-
-
-
-body{
-    font-family: 'Fira Sans Normal', sans-serif !important;
-}
-
-h1{
-    font-family: 'Fira Sans Bold', sans-serif !important;
 }
 
 
@@ -52,7 +33,8 @@ $widescreen-enabled: true;
 $fullhd-enabled: true;
 
 // Update some of Bulma's component variables
-$body-background-color: $midnight-blue;
+
+
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
@@ -66,3 +48,62 @@ $input-shadow: none;
 @import "../node_modules/bulma/sass/components/navbar.sass";
 @import "../node_modules/bulma/sass/layout/hero.sass";
 @import "../node_modules/bulma/sass/layout/section.sass";
+
+
+
+//custom css
+html{
+    background: #141E30;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100%;
+}
+body{
+    height: 100%;
+    width: 100vw;
+    font-family: 'Fira Sans Normal', sans-serif !important;
+}
+
+h1{
+    font-family: 'Fira Sans Bold', sans-serif !important;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.side-menu>div>span{
+    width:100%;
+}
+
+.container-fluid{
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+// .columns{
+//     height: 100%;
+// }
+
+.top-menu{
+    height: 70vh;
+}
+
+.top-menu>span{
+    height: 50px;
+    cursor: pointer;
+}
+
+.bottom-menu{
+margin-top: auto;
+}
+
+.heading,.title{
+    color: white;
+}
+
+.news-posts{
+    height: 80vh;
+    overflow-x: hidden; 
+    overflow-y: auto;
+}

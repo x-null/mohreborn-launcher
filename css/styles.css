@@ -7702,9 +7702,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
 
-::-webkit-scrollbar {
-  display: none; }
-
 @font-face {
   font-family: 'Fira Sans Normal';
   src: url("../fonts/Fira_Sans/FiraSans-Regular.ttf") format("truetype");
@@ -7716,12 +7713,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   src: url("../fonts/Fira_Sans/FiraSans-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal; }
-
-body {
-  font-family: 'Fira Sans Normal', sans-serif !important; }
-
-h1 {
-  font-family: 'Fira Sans Bold', sans-serif !important; }
 
 /* Bulma Utilities */
 @keyframes spinAround {
@@ -7987,7 +7978,7 @@ th {
     text-align: inherit; }
 
 html {
-  background-color: #2f3542;
+  background-color: white;
   font-size: 16px;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -11187,3 +11178,48 @@ a.navbar-item,
       padding: 9rem 1.5rem; }
     .section.is-large {
       padding: 18rem 1.5rem; } }
+
+html {
+  background: #141E30;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #243B55, #141E30);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100%; }
+
+body {
+  height: 100%;
+  width: 100vw;
+  font-family: 'Fira Sans Normal', sans-serif !important; }
+
+h1 {
+  font-family: 'Fira Sans Bold', sans-serif !important; }
+
+::-webkit-scrollbar {
+  display: none; }
+
+.side-menu > div > span {
+  width: 100%; }
+
+.container-fluid {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem; }
+
+.top-menu {
+  height: 70vh; }
+
+.top-menu > span {
+  height: 50px;
+  cursor: pointer; }
+
+.bottom-menu {
+  margin-top: auto; }
+
+.heading, .title {
+  color: white; }
+
+.news-posts {
+  height: 80vh;
+  overflow-x: hidden;
+  overflow-y: auto; }

@@ -7,23 +7,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/fontawesome5.all.min.js"></script>
   <title>MOH Reborn Launcher</title>
 
 </head>
 
 <body>
-  <div class="columns">
-    <div class="column is-1 menu">
-      Logo
-    </div>
-    <div class="column is-7 news">
-      <h1 class="has-text-white has-text-weight-bold is-size-1">News</h1>>
-    </div>
-    <div class="column is-4 play">
-      <h1 class="has-text-white has-text-weight-bold is-size-1">Play</h1>
-    </div>
-  </div>
+  <div class="container-fluid">
 
+    <div class="columns">
+      <div class="column is-1 side-menu mt-3">
+        <div id="logo">logo</div>
+        <div class="top-menu mt-6">
+          <span class="icon has-text-white">
+            <i class="fas fa-home fa-lg"></i>
+          </span>
+          <span class="icon has-text-white mt-3">
+            <i class="fas fa-list fa-lg"></i>
+          </span>
+          <span class="icon has-text-white mt-3">
+            <i class="fas fa-tools fa-lg"></i>
+          </span>
+        </div>
+        <div class="bottom-menu">
+          <span class="icon has-text-white">
+            <i class="fas fa-cog  fa-lg"></i>
+          </span>
+        </div>
+        </div>
+
+      <div class="column is-7 news">
+        <h1 class="has-text-white has-text-weight-bold is-size-1">News</h1>
+        <div class="news-posts">
+          <div class="tile is-ancestor">
+            <div class="tile is-vertical is-12">
+              <div class="tile is-parent">
+                <article class="tile is-child notification is-danger">
+                  <p class="title">Wide tile <span class="tag is-white">tag</span></p>
+                  <p class="subtitle">Aligned with the right tile</p>
+                  <div class="content">
+                    <!-- Content -->
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tile is-ancestor">
+            <div class="tile is-vertical is-12">
+              <div class="tile is-parent">
+                <article class="tile is-child notification is-primary">
+                  <p class="title">Wide tile <span class="tag is-white">tag</span></p>
+                  <p class="subtitle">Aligned with the right tile</p>
+                  <div class="content">
+                    <!-- Content -->
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <div class="tile is-ancestor">
+            <div class="tile is-vertical is-12">
+              <div class="tile is-parent">
+                <article class="tile is-child notification is-danger">
+                  <p class="title">Wide tile <span class="tag is-white">tag</span></p>
+                  <p class="subtitle">Aligned with the right tile</p>
+                  <div class="content">
+                    <!-- Content -->
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tile is-ancestor">
+            <div class="tile is-vertical is-12">
+              <div class="tile is-parent">
+                <article class="tile is-child notification is-primary">
+                  <p class="title">Wide tile <span class="tag is-white">tag</span></p>
+                  <p class="subtitle">Aligned with the right tile</p>
+                  <div class="content">
+                    <!-- Content -->
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-4 play">
+        <h1 class="has-text-white has-text-weight-bold is-size-1">Play</h1>
+      </div>
+    </div>
+</div>
   <!-- You can also require other files to run in this process -->
   <script src="./renderer.js"></script>
   <script src="js/jquery.min.js"></script>
