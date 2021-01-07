@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>MOH Reborn Launcher</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <p class="subtitle">
-      Modern CSS framework based on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">Flexbox</a>
-    </p>
 
-    <div class="field">
-      <div class="control">
-        <input class="input" type="text" placeholder="Input">
-      </div>
-    </div>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <div class="field">
-      <p class="control">
-        <span class="select">
-          <select>
-            <option>Select dropdown</option>
-          </select>
-        </span>
-      </p>
-    </div>
+  <link rel="stylesheet" href="css/styles.css">
+  <title>MOH Reborn Launcher</title>
 
-    <div class="buttons">
-      <a class="button is-primary">Primary</a>
-      <a class="button is-link">Link</a>
+</head>
+
+<body>
+  <div class="columns">
+    <div class="column is-1 menu">
+      Logo
     </div>
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+    <div class="column is-7 news">
+      <h1 class="has-text-white has-text-weight-bold is-size-1">News</h1>>
+    </div>
+    <div class="column is-4 play">
+      <h1 class="has-text-white has-text-weight-bold is-size-1">Play</h1>
+    </div>
+  </div>
+
+  <!-- You can also require other files to run in this process -->
+  <script src="./renderer.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script>
+    try {
+      $ = jQuery = module.exports;
+      // If you want module.exports to be empty, uncomment:
+      // module.exports = {};
+    } catch (e) {}
+  </script>
+  <script src="js/script.js"></script>
+</body>
+
 </html>
