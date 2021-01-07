@@ -1,12 +1,39 @@
 @charset "utf-8";
-// @import "../node_modules/bulma/bulma.sass";
+@import "../node_modules/bulma/bulma.sass";
 
 ::-webkit-scrollbar {
     display: none;
-    }
+}
+
+
+
 
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@font-face {
+    font-family: 'Fira Sans Normal';
+    src: url('../fonts/Fira_Sans/FiraSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fira Sans Bold';
+    src: url('../fonts/Fira_Sans/FiraSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+
+
+body{
+    font-family: 'Fira Sans Normal', sans-serif !important;
+}
+
+h1{
+    font-family: 'Fira Sans Bold', sans-serif !important;
+}
+
 
 // brand colors
 $purple: #8A4D76;
@@ -14,18 +41,18 @@ $pink: #FA7C91;
 $brown: #757763;
 $beige-light: #D0D1CD;
 $beige-lighter: #EFF0EB;
+$midnight-blue: #2f3542;
 
 // Update Bulma's global variables
-$family-sans-serif: "Nunito", sans-serif;
+$family-sans-serif: "Fira Sans", sans-serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
-$primary: $purple;
 $link: $pink;
-$widescreen-enabled: false;
-$fullhd-enabled: false;
+$widescreen-enabled: true;
+$fullhd-enabled: true;
 
 // Update some of Bulma's component variables
-$body-background-color: $beige-lighter;
+$body-background-color: $midnight-blue;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
