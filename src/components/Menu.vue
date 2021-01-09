@@ -1,11 +1,13 @@
 <template>
-  <div id="menuitem">
-    <MenuItem
-      v-for="menuitem in menuitems"
-      :menuitem="menuitem"
-      :key="menuitem.id"
-    ></MenuItem>
-  </div>
+  <aside class="menu">
+    <ul class="menu-list">
+      <MenuItem
+        v-for="menuitem in menuitems"
+        :menuitem="menuitem"
+        :key="menuitem.id"
+      ></MenuItem>
+    </ul>
+  </aside>
 </template>
 
 <script>
@@ -30,9 +32,15 @@ export default {
         },
         {
           id: 3,
-          name: "tools",
-          routerlink: "/tools",
+          name: "content",
+          routerlink: "/content",
           icon: "fas fa-tools fa-lg",
+        },
+        {
+          id: 4,
+          name: "settings",
+          routerlink: "/settings",
+          icon: "fas fa-cog fa-lg",
         },
       ],
     };

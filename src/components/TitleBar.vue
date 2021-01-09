@@ -1,6 +1,6 @@
 <template>
-  <div id="titlebar">
-    <TitleBarItem v-for="titlebaritem in titlebaritems" :titlebaritem="titlebaritem" :key="titlebaritem.id"></TitleBarItem>
+  <div id="titlebar" class="level-left">
+    <TitleBarItem v-for="titlebaritem in titlebaritems" :titlebaritem="titlebaritem" :key="titlebaritem.id" class="level-item"></TitleBarItem>
   </div>
 </template>
 
@@ -36,5 +36,8 @@ export default {
 </script>
 
 <style scoped>
-
+#titlebar{
+  margin-top:5px;
+  margin-right: 5px;
+}
 </style>

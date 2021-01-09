@@ -1,11 +1,29 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import ServerList from '../views/ServerList.vue'
+import Settings from '../views/Settings.vue'
+import Content from '../views/Content.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/serverlist',
+    name: 'ServerList',
+    component: ServerList
+  },
+  {
+    path: '/content',
+    name: 'Content',
+    component: Content
+  },
+  {
+    path: '/settings',
+    name: 'Settings',
+    component: Settings
   },
   {
     path: '/about',
@@ -21,7 +39,9 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
+  linkActiveClass: "active", // active class for non-exact links.
+  linkExactActiveClass: "active" // active class for *exact* links.
 })
 
 export default router

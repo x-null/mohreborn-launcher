@@ -1,12 +1,13 @@
 <template>
-  <div class="colums" style="-webkit-app-region: drag">
-    <div class="column is-2 is-offset-10">
+  <div style="-webkit-app-region: drag;">
+    <div class="level">
+      <span class="level-left"></span>
       <TitleBar />
     </div>
   </div>
 
-  <div class="colums">
-    <div class="column is-1">
+  <div class="columns">
+    <div class="column is-narrow">
       <Menu />
     </div>
     <div class="column is-11">
@@ -88,5 +89,12 @@ body {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+@media print, screen and (min-width: 769px) {
+  .level-left .level-item:not(:last-child),
+  .level-right .level-item:not(:last-child) {
+    margin-right: 0 !important;
+  }
 }
 </style>
