@@ -1,5 +1,5 @@
 <template>
-  <div style="-webkit-app-region: drag;">
+  <div class="topbar" style="-webkit-app-region: drag">
     <div class="level">
       <span class="level-left"></span>
       <TitleBar />
@@ -10,7 +10,7 @@
     <div class="column is-narrow">
       <Menu />
     </div>
-    <div class="column is-11">
+    <div class="column view">
       <router-view />
     </div>
   </div>
@@ -72,23 +72,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.topbar {
+  margin-bottom: 0.75rem;
+}
+
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.view {
+  margin-right: 0.75rem;
+  height: 70vh;
+  overflow-y: auto;
 }
 
 @media print, screen and (min-width: 769px) {
