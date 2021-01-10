@@ -1,7 +1,7 @@
 <template>
   <div class="serverlist">
     <!-- <p>{{servers}}</p> -->
-    <p>AA servers: {{servers[0].length}}</p>
+    <p><bold>AA servers: </bold>{{ servers[0].length }} / SH servers: {{ servers[1].length }} / BT servers: {{ servers[2].length }}</p>
     <div class="table-container">
       <table class="table is-striped is-hoverable">
         <thead>
@@ -15,15 +15,51 @@
             <th>IP</th>
           </tr>
         </thead>
-        <tbody>
-          <tr v-for="server in servers[0]" :key="server.gameid">
-            <th>{{server.gameid}}</th>
-            <th>{{server.status.split("\\")[server.status.split("\\").indexOf("hostname") + 1]}}</th>
-            <th>{{server.status.split("\\")[server.status.split("\\").indexOf("mapname") + 1]}}</th>
-            <th>{{server.status.split("\\")[server.status.split("\\").indexOf("clients") + 1] + "/" + server.status.split("\\")[server.status.split("\\").indexOf("sv_maxclients") + 1]}}</th>
-            <th>{{server.status.split("\\")[server.status.split("\\").indexOf("gametypestring") + 1]}}</th>
+        <tbody v-for="gamearray in servers" :key="gamearray.index">
+          <tr
+            v-for="server in gamearray"
+            :key="server.gameid"
+            v-show="
+              server.status.split('\\')[
+                server.status.split('\\').indexOf('hostname') + 1
+              ] != ''
+            "
+          >
+            <th class="is-narrow">{{ server.gameid }}</th>
+            <th>
+              {{
+                server.status.split("\\")[
+                  server.status.split("\\").indexOf("hostname") + 1
+                ]
+              }}
+            </th>
+            <th>
+              {{
+                server.status.split("\\")[
+                  server.status.split("\\").indexOf("mapname") + 1
+                ]
+              }}
+            </th>
+            <th>
+              {{
+                server.status.split("\\")[
+                  server.status.split("\\").indexOf("clients") + 1
+                ] +
+                "/" +
+                server.status.split("\\")[
+                  server.status.split("\\").indexOf("sv_maxclients") + 1
+                ]
+              }}
+            </th>
+            <th>
+              {{
+                server.status.split("\\")[
+                  server.status.split("\\").indexOf("gametypestring") + 1
+                ]
+              }}
+            </th>
             <th>1</th>
-            <th>{{server.ip + ":" + server.port}}</th>
+            <th>{{ server.ip + ":" + server.port }}</th>
           </tr>
         </tbody>
       </table>
@@ -40,10 +76,10 @@ export default {
         "mohaa",
         // "mohaamac",
         // "mohaad",
-        // "mohaas",
+        "mohaas",
         // "mohaasd",
         // "mohaasmac",
-        // "mohaab",
+        "mohaab",
         // "mohaabdm",
         // "mohaabd",
         // "mohaabmac",
@@ -71,7 +107,14 @@ export default {
 
       // Listen for messages
       socket.addEventListener("message", function (event) {
-        vm.servers.push(JSON.parse(event.data));
+        var data = JSON.parse(event.data)
+        // Temp fix to clean all "dead" servers in the array
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].status.split("\\")[data[i].status.split("\\").indexOf("hostname") + 1] == "") {
+            data.splice(i, 1);
+          }
+        }
+        vm.servers.push(data);
       });
     },
   },

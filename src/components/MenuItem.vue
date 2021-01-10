@@ -24,7 +24,7 @@ router-link {
   padding: 2em;
   margin: -2em;
 }
-.active{
+.active {
   background-color: #70a1ff;
 }
 </style>
