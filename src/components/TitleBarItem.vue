@@ -1,11 +1,11 @@
 <template>
-  <span v-on:click="menuitemhandler(titlebaritem.name)" :id="titlebaritem.id" class="icon has-text-black">
+  <div v-on:click="menuitemhandler(titlebaritem.name)" :id="titlebaritem.id" class="icon">
     <i v-bind:class="titlebaritem.icon"></i>
-  </span>
+  </div>
 </template>
 
 <script>
-const { ipcRenderer } = window.require("electron");
+const { ipcRenderer } = window.require ? window.require("electron") : {send: function(){}};
 
 export default {
   name: "titlebaritem",

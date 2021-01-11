@@ -1,6 +1,9 @@
 <template>
-  <div id="titlebar" class="level-left">
-    <TitleBarItem v-for="titlebaritem in titlebaritems" :titlebaritem="titlebaritem" :key="titlebaritem.id" class="level-item"></TitleBarItem>
+  <div class="titlebar">
+    <div class="title"></div>
+    <div class="controls">
+      <TitleBarItem v-for="titlebaritem in titlebaritems" :titlebaritem="titlebaritem" :key="titlebaritem.id" class="control-item"></TitleBarItem>
+    </div>
   </div>
 </template>
 
@@ -35,9 +38,29 @@ export default {
 };
 </script>
 
-<style scoped>
-#titlebar{
-  margin-top:5px;
-  margin-right: 5px;
+<style lang="scss" scoped>
+
+.titlebar {
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+  margin: 0.25rem 0.25rem 0.75rem 0.25rem;
+  box-sizing: border-box;
+
+  .title {
+    display: inline-block;
+  }
+  .controls {
+    display: inline-block;
+    float: right;
+
+    .control-item {
+      -webkit-app-region: no-drag;
+      color: black;
+      &:hover {
+        color: gray;
+      }
+    }
+  }
 }
+
 </style>

@@ -1,24 +1,22 @@
 <template>
-  <div class="topbar" style="-webkit-app-region: drag">
-    <div class="level">
-      <span class="level-left"></span>
-      <TitleBar />
+  <section>
+    <TitleBar />
+  </section>
+  <section>
+    <div class="columns">
+      <div class="column is-narrow">
+        <Menu />
+      </div>
+      <div class="column view">
+        <router-view />
+      </div>
     </div>
-  </div>
-
-  <div class="columns">
-    <div class="column is-narrow">
-      <Menu />
-    </div>
-    <div class="column view">
-      <router-view />
-    </div>
-  </div>
+  </section>
 </template>
 
 <script>
 import Menu from "@/components/Menu.vue";
-import TitleBar from "@/components/TitleBar.vue";
+import TitleBar from "@/components/TitleBar";
 export default {
   name: "app",
   components: {
@@ -49,37 +47,10 @@ export default {
   display: none;
 }
 
-html {
-  /* background: #141e30; 
-  background: -webkit-linear-gradient(
-    to right,
-    #243b55,
-    #141e30
-  ); 
-  background: linear-gradient(
-    to right,
-    #243b55,
-    #141e30
-  );  */
-  height: 100%;
-}
-
 body {
-  height: 100%;
-  width: 100vw;
   font-family: "Fira Sans Normal", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.topbar {
-  margin-bottom: 0.75rem;
-}
-
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
 }
 
 .view {
