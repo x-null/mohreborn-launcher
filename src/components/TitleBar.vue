@@ -2,7 +2,12 @@
   <div class="titlebar">
     <div class="title"></div>
     <div class="controls">
-      <TitleBarItem v-for="titlebaritem in titlebaritems" :titlebaritem="titlebaritem" :key="titlebaritem.id" class="control-item"></TitleBarItem>
+      <TitleBarItem
+        v-for="titlebaritem in titlebaritems"
+        :titlebaritem="titlebaritem"
+        :key="titlebaritem.id"
+        class="control-item"
+      ></TitleBarItem>
     </div>
   </div>
 </template>
@@ -12,38 +17,39 @@ import TitleBarItem from "./TitleBarItem.vue";
 
 export default {
   name: "titlebar",
-    data() {
+  data() {
     return {
-      titlebaritems: 
-      [{
-                 id: 1,
-                 name: "minimize",
-                 icon: "far fa-window-minimize",
-      },
-      {
-                 id: 2,
-                 name: "maximize",
-                 icon: "far fa-square",
-      },
-      {
-                 id: 2,
-                 name: "close",
-                 icon: "fas fa-times",
-      }]
+      titlebaritems: [
+        {
+          id: 1,
+          name: "minimize",
+          icon: "far fa-window-minimize",
+        },
+        {
+          id: 2,
+          name: "maximize",
+          icon: "far fa-square",
+        },
+        {
+          id: 2,
+          name: "close",
+          icon: "fas fa-times",
+        },
+      ],
     };
   },
   components: {
-    TitleBarItem
-  }
+    TitleBarItem,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-
 .titlebar {
   -webkit-user-select: none;
   -webkit-app-region: drag;
-  margin: 0.25rem 0.25rem 0.75rem 0.25rem;
+  margin: 0 0.25rem 0.75rem 0.25rem;
+  padding-top: 0.25rem;
   box-sizing: border-box;
 
   .title {
@@ -55,12 +61,11 @@ export default {
 
     .control-item {
       -webkit-app-region: no-drag;
-      color: black;
+      color: #ffffff;
       &:hover {
-        color: gray;
+        color: #dfe4ea;
       }
     }
   }
 }
-
 </style>

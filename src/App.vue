@@ -48,6 +48,18 @@ export default {
 }
 
 body {
+
+  background: -webkit-linear-gradient(
+    17deg,
+    rgba(51, 74, 136, 1) 0%,
+    rgba(66, 112, 179, 1) 100%
+  );
+  background: linear-gradient(
+    17deg,
+    rgba(51, 74, 136, 1) 0%,
+    rgba(66, 112, 179, 1) 100%
+  );
+
   font-family: "Fira Sans Normal", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

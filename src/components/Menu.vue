@@ -22,25 +22,31 @@ export default {
           id: 1,
           name: "home",
           routerlink: "/",
-          icon: "fas fa-home fa-lg",
+          icon: require("@/assets/icons/home.svg"),
         },
         {
           id: 2,
           name: "serverlist",
           routerlink: "/serverlist",
-          icon: "fas fa-list fa-lg",
+          icon: require("@/assets/icons/menu.svg"),
         },
         {
           id: 3,
           name: "content",
           routerlink: "/content",
-          icon: "fas fa-tools fa-lg",
+          icon: require("@/assets/icons/download.svg"),
         },
         {
           id: 4,
+          name: "options",
+          routerlink: "/options",
+          icon: require("@/assets/icons/options.svg"),
+        },
+        {
+          id: 5,
           name: "settings",
           routerlink: "/settings",
-          icon: "fas fa-cog fa-lg",
+          icon: require("@/assets/icons/settings.svg"),
         },
       ],
     };
@@ -51,5 +57,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+.menu-list a:hover {
+  background: none;
+  box-shadow: #444 0 0 0px !important;
+  border-left: 4px solid #F3E002 !important;
+}
 </style>

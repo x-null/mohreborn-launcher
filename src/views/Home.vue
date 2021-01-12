@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-
+    <h1 class="title is-1 has-text-white">News</h1>
 
     <div class="tile is-ancestor">
       <div class="tile is-vertical is-8">

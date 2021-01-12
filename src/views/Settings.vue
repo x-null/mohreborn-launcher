@@ -1,6 +1,6 @@
 <template>
   <div class="settings">
-    <p>settings</p>
+        <h1 class="title is-1 has-text-white">Settings</h1>
   </div>
 </template>
 

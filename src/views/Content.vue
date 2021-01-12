@@ -1,7 +1,7 @@
 // Mods and maps view
 <template>
   <div class="content">
-    <p>content</p>
+        <h1 class="title is-1 has-text-white">Mods & Maps</h1>
   </div>
 </template>
 

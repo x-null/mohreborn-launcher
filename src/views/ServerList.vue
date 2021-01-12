@@ -1,9 +1,13 @@
 <template>
-  <div class="serverlist">
+  <div class="serverlist has-text-white">
+        <h1 class="title is-1 has-text-white">Server List</h1>
     <!-- <p>{{servers}}</p> -->
     <p><bold>AA servers: </bold>{{ servers[0].length }} / SH servers: {{ servers[1].length }} / BT servers: {{ servers[2].length }}</p>
-    <div class="table-container">
-      <table class="table is-striped is-hoverable">
+            <div v-if="loading">
+          Loading..... (spinner)
+        </div>
+    <div v-else class="table-container">
+      <table class="table is-striped is-hoverable is-narrow">
         <thead>
           <tr>
             <th>Game</th>
@@ -15,7 +19,7 @@
             <th>IP</th>
           </tr>
         </thead>
-        <tbody v-for="gamearray in servers" :key="gamearray.index">
+        <tbody v-for="gamearray in servers" :key="gamearray.index" >
           <tr
             v-for="server in gamearray"
             :key="server.gameid"
@@ -25,7 +29,7 @@
               ] != ''
             "
           >
-            <th class="is-narrow">{{ server.gameid }}</th>
+            <th>{{ server.gameid }}</th>
             <th>
               {{
                 server.status.split("\\")[
@@ -72,6 +76,7 @@ export default {
   name: "ServerList",
   data: function () {
     return {
+      loading: true,
       games: [
         "mohaa",
         // "mohaamac",
@@ -88,11 +93,8 @@ export default {
     };
   },
   mounted() {
-    this.$nextTick(function () {
       this.queryservers(this.games);
-
-      console.log(this.servers);
-    });
+      this.loading = false;
   },
   methods: {
     queryservers(game) {
@@ -122,7 +124,8 @@ export default {
 </script>
 
 <style scoped>
+v-cloak { display: none }
 table {
-  width: 100%;
+  width: 100vw;
 }
 </style>
