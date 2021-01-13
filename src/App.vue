@@ -1,17 +1,13 @@
 <template>
-  <section>
-    <TitleBar />
-  </section>
-  <section>
-    <div class="columns">
-      <div class="column is-narrow">
-        <Menu />
-      </div>
-      <div class="column view">
-        <router-view />
-      </div>
-    </div>
-  </section>
+<div class="common-layout">
+  <el-container>
+    <el-header>    <TitleBar /></el-header>
+    <el-container>
+      <el-aside width="200px"><Menu /></el-aside>
+      <el-main>Main</el-main>
+    </el-container>
+  </el-container>
+  </div>
 </template>
 
 <script>
@@ -27,8 +23,6 @@ export default {
 </script>
 
 <style>
-@import "../node_modules/bulma/css/bulma.min.css";
-
 @font-face {
   font-family: "Fira Sans Normal";
   src: url("./assets/fonts/Fira_Sans/FiraSans-Regular.ttf") format("truetype");
@@ -48,7 +42,6 @@ export default {
 }
 
 body {
-
   background: -webkit-linear-gradient(
     17deg,
     rgba(51, 74, 136, 1) 0%,
@@ -65,16 +58,4 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.view {
-  margin-right: 0.75rem;
-  height: 70vh;
-  overflow-y: auto;
-}
-
-@media print, screen and (min-width: 769px) {
-  .level-left .level-item:not(:last-child),
-  .level-right .level-item:not(:last-child) {
-    margin-right: 0 !important;
-  }
-}
 </style>

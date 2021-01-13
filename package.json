@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
+    "element-plus": "^1.0.1-beta.24",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
@@ -21,7 +22,6 @@
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
-    "bulma": "^0.9.1",
     "electron": "^11.1.1",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0",

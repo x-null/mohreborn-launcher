@@ -60,6 +60,10 @@ ipcMain.on("close-me", (evt, arg) => {
   app.quit();
 });
 
+
+
+//Serverlist utils
+
 var servers = [];
 
 function queryservers() {
@@ -97,3 +101,7 @@ function queryservers() {
 ipcMain.on("ask-serverlist", (evt, arg) => {
   evt.sender.send("get-serverlist", servers);
 });
+
+
+
+// Ping each server
