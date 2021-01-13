@@ -1,11 +1,11 @@
 <template>
   <div class="serverlist has-text-white">
-        <h1 class="title is-1 has-text-white">Server List</h1>
-    <!-- <p>{{servers}}</p> -->
-    <p><bold>AA servers: </bold>{{ servers[0].length }} / SH servers: {{ servers[1].length }} / BT servers: {{ servers[2].length }}</p>
-            <div v-if="loading">
-          Loading..... (spinner)
-        </div>
+    <h1 class="title is-1 has-text-white">Server List</h1>
+    <p>
+      <bold>AA servers: </bold>{{ servers[0].length }} / SH servers:
+      {{ servers[1].length }} / BT servers: {{ servers[2].length }}
+    </p>
+    <div v-if="loading">Loading..... (spinner)</div>
     <div v-else class="table-container">
       <table class="table is-striped is-hoverable is-narrow">
         <thead>
@@ -19,7 +19,7 @@
             <th>IP</th>
           </tr>
         </thead>
-        <tbody v-for="gamearray in servers" :key="gamearray.index" >
+        <tbody v-for="gamearray in servers" :key="gamearray.index">
           <tr
             v-for="server in gamearray"
             :key="server.gameid"
@@ -72,59 +72,34 @@
 </template>
 
 <script>
+const { ipcRenderer } = window.require
+  ? window.require("electron")
+  : { send: function () {} };
+
 export default {
   name: "ServerList",
   data: function () {
     return {
       loading: true,
-      games: [
-        "mohaa",
-        // "mohaamac",
-        // "mohaad",
-        "mohaas",
-        // "mohaasd",
-        // "mohaasmac",
-        "mohaab",
-        // "mohaabdm",
-        // "mohaabd",
-        // "mohaabmac",
-      ],
       servers: [],
     };
   },
   mounted() {
-      this.queryservers(this.games);
-      this.loading = false;
-  },
-  methods: {
-    queryservers(game) {
-      var vm = this;
-      var socket = new WebSocket("ws://master.x-null.net:8080/");
+    ipcRenderer.send("ask-serverlist");
+    ipcRenderer.on("get-serverlist", (event, args) => {
+      this.servers = args;
+    });
 
-      // Connection opened
-      socket.addEventListener("open", function () {
-        for (let i = 0; i < vm.games.length; i++)
-          socket.send("getservers " + game[i]);
-      });
-
-      // Listen for messages
-      socket.addEventListener("message", function (event) {
-        var data = JSON.parse(event.data)
-        // Temp fix to clean all "dead" servers in the array
-        for (let i = 0; i < data.length; i++) {
-          if (data[i].status.split("\\")[data[i].status.split("\\").indexOf("hostname") + 1] == "") {
-            data.splice(i, 1);
-          }
-        }
-        vm.servers.push(data);
-      });
-    },
+    console.log(this.servers);
+    this.loading = false;
   },
 };
 </script>
 
 <style scoped>
-v-cloak { display: none }
+v-cloak {
+  display: none;
+}
 table {
   width: 100vw;
 }
