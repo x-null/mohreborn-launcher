@@ -101,6 +101,6 @@ v-cloak {
   display: none;
 }
 table {
-  width: 100vw;
+  width: 100%;
 }
 </style>

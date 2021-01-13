@@ -59,8 +59,10 @@ export default {
 
 <style>
 .menu-list a:hover {
-  background: none;
-  box-shadow: #444 0 0 0px !important;
-  border-left: 4px solid #F3E002 !important;
+  /*box-shadow: #444 0 0 0px !important;*/
+  background-color: transparent !important;
+  border-left: 0.25em solid #F3E002 !important;
+  border-radius: 0;
+  padding-left: .50em;
 }
 </style>

@@ -21,8 +21,8 @@ router-link {
   display: inline-block;
   position: relative;
   z-index: 1;
-  padding: 2em;
-  margin: -2em;
+  /*padding: 2em;
+  margin: -2em;*/
 }
 /* .active {
   -webkit-box-shadow: inset 199px 0px 300px -18px rgba(0, 0, 0, 0.75);

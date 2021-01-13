@@ -1,16 +1,24 @@
 <template>
   <section>
-    <TitleBar />
-  </section>
-  <section>
-    <div class="columns">
-      <div class="column is-narrow">
+    <header>
+      <TitleBar />
+    </header>
+    <main>
+      <div class="menu">
         <Menu />
       </div>
-      <div class="column view">
+      <div class="content">
         <router-view />
       </div>
-    </div>
+<!--      <div class="columns">
+        <div class="column is-narrow">
+
+        </div>
+        <div class="column view">
+
+        </div>
+      </div>-->
+    </main>
   </section>
 </template>
 
@@ -47,8 +55,12 @@ export default {
   display: none;
 }
 
-body {
+html, body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 
+body {
   background: -webkit-linear-gradient(
     17deg,
     rgba(51, 74, 136, 1) 0%,
@@ -65,16 +77,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.view {
-  margin-right: 0.75rem;
-  height: 70vh;
-  overflow-y: auto;
+section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-@media print, screen and (min-width: 769px) {
-  .level-left .level-item:not(:last-child),
-  .level-right .level-item:not(:last-child) {
-    margin-right: 0 !important;
-  }
+section main {
+  flex: 1;
+  height: 100%;
+  display: flex;
 }
+
+section main .menu, .content {
+  height: 100%;
+}
+
+section main .content {
+  flex: 1;
+  padding: 0 .75em .75em .75em;
+}
+
 </style>
