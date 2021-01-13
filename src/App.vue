@@ -1,25 +1,16 @@
 <template>
-  <section>
-    <header>
-      <TitleBar />
-    </header>
-    <main>
-      <div class="menu">
-        <Menu />
-      </div>
-      <div class="content">
-        <router-view />
-      </div>
-<!--      <div class="columns">
-        <div class="column is-narrow">
-
-        </div>
-        <div class="column view">
-
-        </div>
-      </div>-->
-    </main>
-  </section>
+  <div class="common-layout">
+    <el-container>
+      <el-header><TitleBar /></el-header>
+      <el-container>
+        <el-aside width="50px"><Menu /></el-aside>
+        <el-container>
+          <el-main><router-view /></el-main>
+          <el-footer>Footer</el-footer>
+        </el-container>
+      </el-container>
+    </el-container>
+  </div>
 </template>
 
 <script>
@@ -35,8 +26,6 @@ export default {
 </script>
 
 <style>
-@import "../node_modules/bulma/css/bulma.min.css";
-
 @font-face {
   font-family: "Fira Sans Normal";
   src: url("./assets/fonts/Fira_Sans/FiraSans-Regular.ttf") format("truetype");
@@ -51,11 +40,12 @@ export default {
   font-style: normal;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
-html, body {
+html,
+body {
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -75,27 +65,24 @@ body {
   font-family: "Fira Sans Normal", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  color: white;
 }
 
-section {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+h1{
+  font-size: 3rem;
+}
+h1,h2,h3{
+  margin:0;
 }
 
-section main {
-  flex: 1;
-  height: 100%;
-  display: flex;
+
+.el-header{
+  height: 100% !important;
+  padding: 0;
 }
 
-section main .menu, .content {
-  height: 100%;
+.el-main{
+  height: 80vh;
 }
-
-section main .content {
-  flex: 1;
-  padding: 0 .75em .75em .75em;
-}
-
 </style>

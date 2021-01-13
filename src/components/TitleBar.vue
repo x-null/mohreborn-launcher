@@ -55,11 +55,13 @@ export default {
     display: inline-block;
   }
   .controls {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     float: right;
 
     .control-item {
       -webkit-app-region: no-drag;
+      margin-right: 5px;
       color: #ffffff;
       &:hover {
         color: #dfe4ea;

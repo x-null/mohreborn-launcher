@@ -57,12 +57,19 @@ export default {
 };
 </script>
 
-<style>
-.menu-list a:hover {
-  /*box-shadow: #444 0 0 0px !important;*/
-  background-color: transparent !important;
-  border-left: 0.25em solid #F3E002 !important;
-  border-radius: 0;
-  padding-left: .50em;
+<style scoped>
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-inline-start: 10px !important;
 }
+
+.menu-list a:hover {
+  background-color: transparent !important;
+  border-left: 0.25em solid #f3e002 !important;
+  border-radius: 0;
+}
+
+
 </style>

@@ -1,6 +1,6 @@
 <template>
   <li>
-    <router-link v-bind:to="menuitem.routerlink">
+    <router-link :underline="false" v-bind:to="menuitem.routerlink">
       <span :id="menuitem.id" class="icon">
         <img v-bind:src="menuitem.icon" />
       </span>
@@ -16,18 +16,23 @@ export default {
 </script>
 
 <style scoped>
-router-link {
+/* router-link {
   cursor: pointer;
   display: inline-block;
   position: relative;
   z-index: 1;
+  text-decoration: none;
   /*padding: 2em;
-  margin: -2em;*/
-}
-/* .active {
+  margin: -2em;
+} 
+.active {
   -webkit-box-shadow: inset 199px 0px 300px -18px rgba(0, 0, 0, 0.75);
   box-shadow: inset 199px 0px 300px -18px rgba(0, 0, 0, 0.75);
 } */
+li {
+    display: block;
+}
+
 
 /* .icon>i:after {
   position: absolute;

@@ -1,13 +1,13 @@
 <template>
-  <div class="serverlist has-text-white">
-    <h1 class="title is-1 has-text-white">Server List</h1>
+  <div class="serverlist">
+    <h1>Server List</h1>
     <p>
       <bold>AA servers: </bold>{{ servers[0].length }} / SH servers:
       {{ servers[1].length }} / BT servers: {{ servers[2].length }}
     </p>
     <div v-if="loading">Loading..... (spinner)</div>
-    <div v-else class="table-container">
-      <table class="table is-striped is-hoverable is-narrow">
+    <div v-else>
+      <table>
         <thead>
           <tr>
             <th>Game</th>
