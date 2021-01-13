@@ -48,8 +48,7 @@ export default {
 .titlebar {
   -webkit-user-select: none;
   -webkit-app-region: drag;
-  margin: 0 0.25rem 0.75rem 0.25rem;
-  padding-top: 0.25rem;
+  padding: 0.25rem 0.25rem 0.5rem 0.25rem;
   box-sizing: border-box;
 
   .title {
