@@ -28,19 +28,18 @@
 </template>
 
 <script>
-const { ipcRenderer } = window.require
-  ? window.require("electron")
-  : { send: function () {} };
-
 export default {
   name: "ServerList",
   data: function () {
     return {
       loading: true,
-      servers: [],
+      servers: [[],[],[]],
     };
   },
   mounted() {
+    const ipcRenderer = window.ipcRenderer
+        ? window.ipcRenderer
+        : { send: function () {} };
     ipcRenderer.send("ask-serverlist");
     ipcRenderer.on("get-serverlist", (event, args) => {
       if (args != null || args != "") {

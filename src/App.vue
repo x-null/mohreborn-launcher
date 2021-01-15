@@ -1,7 +1,7 @@
 <template>
   <div class="common-layout">
     <el-container>
-      <el-header><TitleBar /></el-header>
+      <el-header><TitleBarVue /></el-header>
       <el-container>
         <el-aside width="50px"><Menu /></el-aside>
         <el-container>
@@ -15,17 +15,19 @@
 
 <script>
 import Menu from "@/components/Menu.vue";
-import TitleBar from "@/components/TitleBar";
+import TitleBarVue from "@/components/titlebar/TitleBar";
 export default {
   name: "app",
   components: {
     Menu,
-    TitleBar,
+    TitleBarVue,
   },
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "styles";
+
 @font-face {
   font-family: "Fira Sans Normal";
   src: url("./assets/fonts/Fira_Sans/FiraSans-Regular.ttf") format("truetype");
