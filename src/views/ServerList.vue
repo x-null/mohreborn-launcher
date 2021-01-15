@@ -43,7 +43,6 @@ export default {
   mounted() {
     ipcRenderer.send("ask-serverlist");
     ipcRenderer.on("get-serverlist", (event, args) => {
-      console.log(args);
       if (args != null || args != "") {
         this.servers = args;
         this.loading = false;

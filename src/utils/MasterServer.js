@@ -1,4 +1,4 @@
-const { Server } = require("./Server.js") ;
+const { Server } = require("./Server.js");
 const WebSocket = require("ws");
 
 function getAllServersFor(games) {
@@ -15,15 +15,14 @@ function getAllServersFor(games) {
       var data = JSON.parse(event.data);
 
       for (let i = 0; i < data.length; i++) {
-        // Temp fix to clean all "dead" servers in the array untill the masterserver is fixed
         if (
+          new Date() - new Date(data[i].alive) < 29940000 &&
           data[i].status.split("\\")[
             data[i].status.split("\\").indexOf("hostname") + 1
-          ] == ""
+          ] != ""
         ) {
-          data.splice(i, 1);
-        } else {
           //Create server objects
+          // console.log(data[i]);
           let game = data[i].gameid;
           let hostname = data[i].status.split("\\")[
             data[i].status.split("\\").indexOf("hostname") + 1
@@ -40,9 +39,21 @@ function getAllServersFor(games) {
           let gametype = data[i].status.split("\\")[
             data[i].status.split("\\").indexOf("gametypestring") + 1
           ];
-          let ip = data[i].ip + ":" + data[i].port;
+          // let ip = data[i].ip + ":" + data[i].port;
+          let ip = data[i].ip;
+          let port = data[i].port;
 
-          var server = new Server(game, hostname, map, players, maxplayers, gametype, ip);
+          var server = new Server(
+            game,
+            hostname,
+            map,
+            players,
+            maxplayers,
+            gametype,
+            ip,
+            port,
+            999
+          );
           servers.push(server);
         }
       }
@@ -52,4 +63,4 @@ function getAllServersFor(games) {
   });
 }
 
-module.exports = { getAllServersFor }
+module.exports = { getAllServersFor };

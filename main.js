@@ -4,6 +4,7 @@ const { ipcMain } = require("electron");
 const url = require("url");
 const path = require("path");
 const { getAllServersFor } = require("./src/utils/MasterServer");
+const { pingpong } = require("./src/utils/MOHpackets");
 
 let mainWindow;
 var servers = [];
@@ -31,10 +32,16 @@ function createWindow() {
     mainWindow = null;
   });
 }
-console.log(app);
+
 app.on("ready", async () => {
   await createWindow();
   servers = await getAllServersFor(["mohaa", "mohaas", "mohaab"]);
+  for (let i = 0; i < servers.length; i++) {
+    await pingpong(servers[i].ip, servers[i].port, "getstatus", (result) => {
+       servers[i].ping = result; 
+      console.log(result);
+    });
+  }
 });
 
 app.on("window-all-closed", function() {
@@ -62,9 +69,7 @@ ipcMain.on("close-me", (evt, arg) => {
 });
 
 
+ ipcMain.on("ask-serverlist", async (evt, args) => {
+    evt.sender.send("get-serverlist", servers);
 
-
-
-ipcMain.on("ask-serverlist", (evt, arg) => {
-  evt.sender.send("get-serverlist", servers);
 });
