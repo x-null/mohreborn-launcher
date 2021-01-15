@@ -1,24 +1,35 @@
-# mohreborn-launcher
+# MoH Reborn Launcher
 
-## Project setup
-```
-npm install
-```
+Game launcher for MoH:AA/SH/BT game series.
 
-### Compiles and load the electron app
-```
-npm run start
-```
+Project uses:
 
-### Compiles and minifies for production
-```
-npm run build
-```
+- [VueJS 3](https://v3.vuejs.org/)
+- [Element Plus UI library](https://element-plus.org/)
+- [Electron](https://www.electronjs.org/)
+- [Electron Builder Vue Plugin](https://nklayman.github.io/vue-cli-plugin-electron-builder/)
+- [Typescript](https://www.typescriptlang.org/)
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Development
+
+1. Install dependencies
+    ```
+    npm install
+    ```
+   
+2. Run full electron application in dev mode
+    ```
+    npm run serve
+    ```
+   
+3. Run gui in dev mode
+    ```
+    npm run electron:serve
+    ```
+
+For more commands - refer to [package.json](package.json) file.
+
+## Contributing
+
+Please see our [Contributing Guide](.github/CONTRIBUTING.md)
