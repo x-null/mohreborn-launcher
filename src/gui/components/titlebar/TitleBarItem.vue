@@ -10,7 +10,7 @@
 <script lang="ts">
 
 import {Options, Vue} from "vue-class-component";
-import {TitleBarItem} from "@/components/titlebar/TitleBarItem";
+import {TitleBarItem} from "@/gui/components/titlebar/TitleBarItem";
 import { PropType } from 'vue';
 
 @Options({

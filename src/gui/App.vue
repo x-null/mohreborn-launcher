@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import Menu from "@/components/Menu.vue";
-import TitleBarVue from "@/components/titlebar/TitleBar";
+import Menu from "@/gui/components/Menu.vue";
+import TitleBarVue from "@/gui/components/titlebar/TitleBar";
 export default {
   name: "app",
   components: {
@@ -26,18 +26,18 @@ export default {
 </script>
 
 <style lang="scss">
-@import "styles";
+@import "src/gui/styles";
 
 @font-face {
   font-family: "Fira Sans Normal";
-  src: url("./assets/fonts/Fira_Sans/FiraSans-Regular.ttf") format("truetype");
+  src: url("assets/fonts/Fira_Sans/FiraSans-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Fira Sans Bold";
-  src: url("./assets/fonts/Fira_Sans/FiraSans-Bold.ttf") format("truetype");
+  src: url("assets/fonts/Fira_Sans/FiraSans-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }

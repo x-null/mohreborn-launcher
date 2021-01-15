@@ -15,7 +15,7 @@
 <script lang="ts">
 import {Options, Vue} from "vue-class-component";
 import TitleBarItemVue from "./TitleBarItem.vue";
-import {TitleBarItem} from "@/components/titlebar/TitleBarItem";
+import {TitleBarItem} from "@/gui/components/titlebar/TitleBarItem";
 
 @Options({
   components: {
