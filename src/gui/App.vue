@@ -3,7 +3,9 @@
     <el-container>
       <el-header><TitleBarVue /></el-header>
       <el-container>
-        <el-aside width="50px"><Menu /></el-aside>
+        <el-aside width="50px">
+          <Menu />
+        </el-aside>
         <el-container>
           <el-main><router-view /></el-main>
           <el-footer>Footer</el-footer>
@@ -17,7 +19,7 @@
 import Menu from "@/gui/components/Menu.vue";
 import TitleBarVue from "@/gui/components/titlebar/TitleBar";
 export default {
-  name: "app",
+  name: "App",
   components: {
     Menu,
     TitleBarVue,

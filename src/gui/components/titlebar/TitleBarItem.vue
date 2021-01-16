@@ -1,9 +1,6 @@
 <template>
-  <div
-    @click="menuitemhandler(titlebaritem.name)"
-    :id="titlebaritem.id"
-  >
-    <font-awesome-icon :icon="titlebaritem.icon"></font-awesome-icon>
+  <div :id="item.id" @click="onClick()">
+    <font-awesome-icon :icon="item.icon" />
   </div>
 </template>
 
@@ -11,23 +8,20 @@
 
 import {Options, Vue} from "vue-class-component";
 import {TitleBarItem} from "@/gui/components/titlebar/TitleBarItem";
-import { PropType } from 'vue';
+import {PropType} from 'vue';
 
 @Options({
   props: {
-    titlebaritem: {
+    item: {
       type: Object as PropType<TitleBarItem>
     }
   }
 })
 export default class TitleBarItemVue extends Vue {
-  titlebaritem!: TitleBarItem
+  item!: TitleBarItem
 
-  menuitemhandler(name: string) {
-    let ipc = window.ipcRenderer ? window.ipcRenderer : { send: function () {} };
-    if (name == "minimize") ipc.send("minimize-me");
-    if (name == "maximize") ipc.send("maximize-me");
-    if (name == "close") ipc.send("close-me");
+  onClick() {
+    this.item.handle();
   }
 }
 </script>

@@ -1,15 +1,15 @@
 'use strict'
 
-import {app, protocol, BrowserWindow, ipcMain} from 'electron'
-import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
-import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
+import {app, BrowserWindow, ipcMain, protocol} from 'electron'
+import {createProtocol} from 'vue-cli-plugin-electron-builder/lib'
+import installExtension, {VUEJS_DEVTOOLS} from 'electron-devtools-installer'
 import * as path from "path";
-import * as ms from './backend/utils/MasterServer';
-import * as mp from './backend/utils/MOHpackets';
+import {IpcChannel} from "@/shared/ipc/IpcChannel";
+import {ApplicationListener} from "@/backend/ipc/ApplicationListener";
+import {GetServerListListener} from "@/backend/ipc/GetServerListListener";
+
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
-
-var servers: any[] = [];
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -43,17 +43,7 @@ async function createWindow() {
     win.loadURL('app://./index.html')
   }
 
-  ipcMain.on("minimize-me", (evt, arg) => {
-    win.minimize();
-  });
-
-  ipcMain.on("maximize-me", (evt, arg) => {
-    win.isMaximized() ? win.unmaximize() : win.maximize();
-  });
-
-  ipcMain.on("close-me", (evt, arg) => {
-    app.quit();
-  });
+  registerIpcChannels(new ApplicationListener(win), new GetServerListListener());
 }
 
 // Quit when all windows are closed.
@@ -84,14 +74,11 @@ app.on('ready', async () => {
     }
   }
   createWindow()
-  servers = await ms.getAllServersFor(["mohaa", "mohaas", "mohaab"]);
-  for (let i = 0; i < servers.length; i++) {
-    await mp.pingpong(servers[i].ip, servers[i].port, "getstatus", (result: number) => {
-      servers[i].ping = result;
-      console.log(result);
-    });
-  }
 })
+
+function registerIpcChannels(...ipcChannels: IpcChannel<any>[]) {
+  ipcChannels.forEach(ipcChannel => ipcMain.on(ipcChannel.name, (e, r) => ipcChannel.handle(e, r)));
+}
 
 // Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {
@@ -107,7 +94,3 @@ if (isDevelopment) {
     })
   }
 }
-
-ipcMain.on("ask-serverlist", (evt, arg) => {
-  evt.sender.send("get-serverlist", servers);
-});

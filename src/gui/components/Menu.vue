@@ -3,9 +3,9 @@
     <ul class="menu-list">
       <MenuItem
         v-for="menuitem in menuitems"
-        :menuitem="menuitem"
         :key="menuitem.id"
-      ></MenuItem>
+        :menuitem="menuitem"
+      />
     </ul>
   </aside>
 </template>
@@ -14,7 +14,10 @@
 import MenuItem from "./MenuItem.vue";
 
 export default {
-  name: "menu",
+  name: "Menu",
+  components: {
+    MenuItem,
+  },
   data() {
     return {
       menuitems: [
@@ -50,9 +53,6 @@ export default {
         },
       ],
     };
-  },
-  components: {
-    MenuItem,
   },
 };
 </script>

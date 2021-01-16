@@ -1,7 +1,7 @@
 <template>
   <div class="settings">
-        <h1>Settings</h1>
-        <p>Launcher settings</p>
+    <h1>Settings</h1>
+    <p>Launcher settings</p>
   </div>
 </template>
 

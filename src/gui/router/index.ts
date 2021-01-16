@@ -1,9 +1,9 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import {createRouter, createWebHashHistory} from 'vue-router'
 import Home from '../views/Home.vue'
-import ServerList from '../views/ServerList.vue'
 import Settings from '../views/Settings.vue'
 import Options from '../views/Options.vue'
 import Content from '../views/Content.vue'
+import ServerListVue from "@/gui/views/ServerList.vue";
 
 const routes = [
   {
@@ -14,7 +14,7 @@ const routes = [
   {
     path: '/serverlist',
     name: 'ServerList',
-    component: ServerList
+    component: ServerListVue
   },
   {
     path: '/content',

@@ -1,8 +1,14 @@
 <template>
   <li>
-    <router-link :underline="false" v-bind:to="menuitem.routerlink">
-      <span :id="menuitem.id" class="icon">
-        <img v-bind:src="menuitem.icon" />
+    <router-link
+      :underline="false"
+      :to="menuitem.routerlink"
+    >
+      <span
+        :id="menuitem.id"
+        class="icon"
+      >
+        <img :src="menuitem.icon">
       </span>
     </router-link>
   </li>
@@ -10,7 +16,7 @@
 
 <script>
 export default {
-  name: "menuitem",
+  name: "Menuitem",
   props: ["menuitem"],
 };
 </script>

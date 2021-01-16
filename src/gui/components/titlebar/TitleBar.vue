@@ -1,13 +1,13 @@
 <template>
   <div class="titlebar">
-    <div class="title"></div>
+    <div class="title" />
     <div class="controls">
       <TitleBarItemVue
-          v-for="item in titlebaritems"
-          :titlebaritem="item"
-          :key="item.id"
-          class="control-item"
-      ></TitleBarItemVue>
+        v-for="item in items"
+        :key="item.id"
+        :item="item"
+        class="control-item"
+      />
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@
 <script lang="ts">
 import {Options, Vue} from "vue-class-component";
 import TitleBarItemVue from "./TitleBarItem.vue";
-import {TitleBarItem} from "@/gui/components/titlebar/TitleBarItem";
+import {DEFAULT_TITLEBAR_ITEMS, TitleBarItem} from "@/gui/components/titlebar/TitleBarItem";
 
 @Options({
   components: {
@@ -23,23 +23,7 @@ import {TitleBarItem} from "@/gui/components/titlebar/TitleBarItem";
   }
 })
 export default class TitleBarVue extends Vue {
-  titlebaritems: TitleBarItem[] = [
-    {
-      id: 1,
-      name: "minimize",
-      icon: ["far", "window-minimize"]
-    },
-    {
-      id: 2,
-      name: "maximize",
-      icon: ["far", "square"]
-    },
-    {
-      id: 2,
-      name: "close",
-      icon: ["fas", "times"]
-    }
-  ]
+  items: TitleBarItem[] = DEFAULT_TITLEBAR_ITEMS;
 }
 </script>
 
