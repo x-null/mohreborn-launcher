@@ -1,21 +1,34 @@
 <template>
   <div class="home">
-    <img
-      alt="Vue logo"
-      src="../assets/logo.png"
-    >
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <el-row :gutter="25">
+      <el-col :span="16">
+        <h1>News</h1>
+        <NewsCard />
+      </el-col>
+      <el-col :span="8">
+        <h1>Play</h1>
+        <Friends />
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/gui/components/HelloWorld.vue'; // @ is an alias to /src
+import { Options, Vue } from "vue-class-component";
+import NewsCard from "@/gui/components/NewsCard.vue";
+import Friends from "@/gui/components/Friends.vue";
 
 @Options({
   components: {
-    HelloWorld,
+    NewsCard,
+    Friends
   },
 })
 export default class Home extends Vue {}
 </script>
+
+<style scoped>
+h1{
+  padding-bottom: 20px;;
+}
+</style>>
