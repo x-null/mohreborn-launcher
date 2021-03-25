@@ -30,8 +30,6 @@
     "autoprefixer": "^9.8.6",
     "electron": "^11.1.1",
     "electron-devtools-installer": "^3.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0-0",
     "postcss": "^7.0.35",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
     "vue-cli-plugin-electron-builder": "~2.0.0-rc.6",
@@ -43,13 +41,10 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended",
-      "@vue/typescript"
+      "plugin:vue/vue3-essential"
     ],
     "parserOptions": {
-      "ecmaVersion": 2020,
-      "parser": "@typescript-eslint/parser"
+      "ecmaVersion": 2020
     },
     "rules": {}
   },
