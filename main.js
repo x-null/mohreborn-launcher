@@ -42,14 +42,14 @@ app.on('activate', function () {
 
 
 
-ipcMain.on('minimize-me', (evt, arg) => {
+ipcMain.on('minimize-me', () => {
   mainWindow.minimize();
 });
 
-ipcMain.on('maximize-me', (evt, arg) => {
+ipcMain.on('maximize-me', () => {
   mainWindow.isMaximized() ? mainWindow.unmaximize() : mainWindow.maximize();
 });
 
-ipcMain.on('close-me', (evt, arg) => {
+ipcMain.on('close-me', () => {
   app.quit();
 });
