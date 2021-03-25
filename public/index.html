@@ -7,8 +7,17 @@
 
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+    </style>
   </head>
-  <body style="margin: 0; padding: 0; height: 100%; width: 100%">
-    <div id="app"></div>
+  <body id="app">
   </body>
 </html>
