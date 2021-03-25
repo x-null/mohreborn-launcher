@@ -1,16 +1,18 @@
 <template>
   <div>
-    <router-view />
+    <Layout>
+      <router-view />
+    </Layout>
   </div>
 </template>
 
 <script>
+import Layout from "./components/Layout.vue";
+
 export default {
-  name: "app",
-  components: {},
+  name: "App",
+  components: {
+    Layout,
+  },
 };
 </script>
-
-<style>
-/* @import "../node_modules/bulma/css/bulma.min.css"; */
-</style>
