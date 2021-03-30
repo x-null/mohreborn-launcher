@@ -5,7 +5,7 @@ Game launcher for MoH:AA/SH/BT game series.
 Project uses:
 
 - [VueJS 3](https://v3.vuejs.org/)
-- [Element Plus UI library](https://element-plus.org/)
+- [TailwindCSS](https://tailwindcss.com/)
 - [Electron](https://www.electronjs.org/)
 - [Electron Builder Vue Plugin](https://nklayman.github.io/vue-cli-plugin-electron-builder/)
 - [Typescript](https://www.typescriptlang.org/)
